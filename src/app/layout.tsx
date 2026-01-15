@@ -20,8 +20,76 @@ const libreBaskerville = Libre_Baskerville({
 
 //#region Metadata
 export const metadata: Metadata = {
-  title: "PowerVet - Veterinary medicine, refined for feline wellbeing.",
-  description: "Veterinary medicine focused on feline health and comfort.",
+  metadataBase: new URL("https://powervet.com"),
+
+  title: {
+    default: "PowerVet — Veterinary Medicine Refined for Feline Wellbeing",
+    template: "%s | PowerVet",
+  },
+
+  description:
+    "PowerVet offers expert veterinary care for cats, combining advanced medical treatment with personalized attention for long-term feline wellbeing.",
+
+  applicationName: "PowerVet",
+
+  keywords: [
+    "veterinary medicine",
+    "cat care",
+    "feline health",
+    "pet wellness",
+    "veterinary clinic",
+    "preventive care",
+    "PowerVet",
+  ],
+
+  authors: [
+    {
+      name: "Guilherme Bustamante",
+    },
+  ],
+
+  creator: "Guilherme Bustamante",
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  openGraph: {
+    title: "PowerVet — Expert Veterinary Care for Cats",
+    description:
+      "Providing personalized veterinary medicine focused on feline comfort and wellbeing.",
+    url: "https://powervet.vercel.app",
+    siteName: "PowerVet",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "PowerVet — Feline Veterinary Care",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "PowerVet — Veterinary Medicine for Cats",
+    description:
+      "Expert care and personalized treatments to ensure your cat’s wellbeing.",
+    images: ["/og-image.png"],
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+
+  alternates: {
+    canonical: "https://powervet.vercel.app",
+  },
 };
 //#endregion
 
