@@ -20,7 +20,7 @@ const libreBaskerville = Libre_Baskerville({
 
 //#region Metadata
 export const metadata: Metadata = {
-  metadataBase: new URL("https://powervet.com"),
+  metadataBase: new URL("https://powervet.vercel.app"),
 
   title: {
     default: "PowerVet — Veterinary Medicine Refined for Feline Wellbeing",
