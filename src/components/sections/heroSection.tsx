@@ -151,7 +151,7 @@ export function HeroSection() {
             className="flex flex-col sm:flex-row items-center gap-8"
           >
             <motion.a
-              href="#appointment"
+              href="#schedule"
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.97 }}
               className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3 text-base font-medium text-white hover:bg-accent/90 transition"
@@ -160,7 +160,7 @@ export function HeroSection() {
             </motion.a>
 
             <motion.a
-              href="#approach"
+              href="#our-approach"
               whileHover={{ x: 6 }}
               className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
