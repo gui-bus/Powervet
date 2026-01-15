@@ -129,7 +129,7 @@ export function ServicesList() {
           {/* IMAGE */}
           <div className="relative w-full h-64 sm:h-80 md:h-full overflow-hidden rounded-3xl">
             <Image
-              src="/content/images/catBackground.webp"
+              src="/content/images/catBg.webp"
               alt=""
               fill
               priority

@@ -69,7 +69,7 @@ export function HeroSection() {
           </Link>
 
           {/* LINKS */}
-          <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
+          <nav className="hidden xl:flex items-center gap-8 text-sm text-muted-foreground">
             <Link
               href="#our-approach"
               className="hover:-translate-y-1 transition-all duration-300"
