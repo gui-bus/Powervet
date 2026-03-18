@@ -50,7 +50,7 @@ export default async function RootLayout({
   // Garantir que temos um locale válido
   const locale = ["en", "pt"].includes(localeFromParams)
     ? localeFromParams
-    : "en";
+    : "pt";
 
   const messages = await getMessages();
 
