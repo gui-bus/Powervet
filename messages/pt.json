@@ -1,0 +1,200 @@
+{
+  "Hero": {
+    "accredited": "Prática Clínica Credenciada · Est. 2012",
+    "title": "Medicina Veterinária Avançada,",
+    "subtitle": "dedicada à saúde felina.",
+    "description": "Combinamos precisão clínica com um ambiente calmante para oferecer o mais alto padrão de atendimento especializado para gatos em todas as fases da vida.",
+    "request_appointment": "Solicitar Agendamento",
+    "explore_specialties": "Explore nossas especialidades",
+    "nav_approach": "Nossa abordagem",
+    "nav_workflow": "Fluxo de Consulta",
+    "nav_address": "Endereço",
+    "metric_patients": "Pacientes Anuais",
+    "metric_patients_val": "2.500+",
+    "metric_doctors": "Médicos Especialistas",
+    "metric_doctors_val": "06",
+    "metric_trust": "Confiança dos Clientes",
+    "metric_trust_val": "99%",
+    "detail_title": "Medicina Felina Baseada em Evidências",
+    "detail_desc": "\"Nossos protocolos de prática são atualizados semestralmente com base em pesquisas veterinárias internacionais.\""
+  },
+  "Philosophy": {
+    "badge": "Nossa Filosofia",
+    "title": "Cuidado projetado para",
+    "subtitle": "o paciente felino.",
+    "step1_title": "Manuseio Clínico de Baixo Estresse",
+    "step1_description": "Nossa equipe é treinada em técnicas especializadas de manuseio felino que priorizam a segurança física e emocional, reduzindo a ansiedade do paciente durante cada procedimento.",
+    "step2_title": "Diagnósticos Baseados em Evidências",
+    "step2_description": "Utilizamos protocolos estruturados e tomada de decisão clínica precisa para garantir diagnósticos acurados e caminhos de tratamento eficazes para o seu gato.",
+    "step3_title": "Ambiente Felino Especializado",
+    "step3_description": "Do gerenciamento de odores ao controle acústico, cada aspecto de nossa clínica é projetado para fornecer um espaço neutro e calmante para pacientes felinos."
+  },
+  "Workflow": {
+    "badge": "Protocolo Operacional Padrão",
+    "title": "O Fluxo de",
+    "subtitle": "Consulta",
+    "description": "Nossa metodologia é derivada das diretrizes internacionais de medicina felina, garantindo consistência, segurança e excelência clínica.",
+    "step1_title": "Estabilização Ambiental",
+    "step1_description": "Cada paciente inicia sua visita em um espaço silencioso, enriquecido com feromônios, para estabilizar a frequência cardíaca e reduzir os níveis de cortisol antes do exame.",
+    "step2_title": "Observação Não Invasiva",
+    "step2_description": "Realizamos uma avaliação clínica visual à distância, monitorando a mobilidade, o esforço respiratório e marcadores comportamentais para guiar o exame físico.",
+    "step3_title": "Exame com Contenção Mínima",
+    "step3_description": "Uma avaliação física completa realizada com técnicas de manuseio 'menos é mais' para preservar a confiança e a precisão clínica.",
+    "step4_title": "Plano Baseado em Evidências",
+    "step4_description": "Os achados são revisados com os tutores e um caminho diagnóstico ou terapêutico personalizado é desenvolvido com base nos padrões médicos felinos mais recentes."
+  },
+  "Specialties": {
+    "badge": "Especialidades Clínicas",
+    "title": "Áreas dedicadas de",
+    "subtitle": "excelência clínica.",
+    "description": "Nossa prática é estruturada em focos clínicos rigorosos para proporcionar profundidade no cuidado especializado felino.",
+    "s1_title": "Medicina Preventiva",
+    "s1_description": "Protocolos abrangentes de bem-estar, incluindo imunologia, controle de parasitas e triagens de detecção precoce para uma vida saudável.",
+    "s2_title": "Medicina Interna",
+    "s2_description": "Diagnóstico avançado e gerenciamento de distúrbios metabólicos, endócrinos e gastrointestinais usando protocolos felinos especializados.",
+    "s3_title": "Medicina Comportamental",
+    "s3_description": "Avaliação de padrões neuropsicológicos e estressores ambientais que impactam a saúde do paciente e o vínculo entre tutor e paciente.",
+    "s4_title": "Cuidados Geriátricos",
+    "s4_description": "Gerenciamento especializado de condições relacionadas à idade, priorizando o controle da dor e a estabilidade metabólica para pacientes idosos.",
+    "action": "Solicitar Consulta",
+    "quote": "\"Precisão no diagnóstico, compaixão no tratamento.\""
+  },
+  "Testimonial": {
+    "badge": "Declaração de Liderança",
+    "quote": "Cada paciente requer uma narrativa clínica única. Nossa missão é fornecer aos tutores de gatos um cuidado atencioso, baseado em evidências, que priorize a estabilidade fisiológica e a segurança emocional acima de tudo.",
+    "author": "Dra. Alexandra Williams",
+    "role": "Diretora Médica",
+    "credentials": "DVM, Especialista em Prática Felina",
+    "stat": "Anos de Especialização Clínica Felina",
+    "stat_val": "14+"
+  },
+  "Insights": {
+    "badge": "Centro de Recursos Médicos",
+    "title": "Conhecimentos baseados em evidências para",
+    "subtitle": "uma tutoria informada.",
+    "description": "Nossa biblioteca clínica fornece profundidade técnica sobre saúde, comportamento e metodologias preventivas felinas.",
+    "read_more": "Ler Publicação",
+    "close": "Fechar Artigo",
+    "reference": "Publicação de Referência",
+    "copyright": "Recurso Clínico © 2026 Prática PowerVet",
+    "posts": [
+      {
+        "category": "Gastroenterologia",
+        "title": "Avaliação Clínica de Êmese Recorrente em Pacientes Felinos",
+        "description": "Uma revisão de quando o vômito intermitente ultrapassa o limite da preocupação clínica.",
+        "readTime": "4 min de leitura",
+        "date": "12 de Março, 2026",
+        "image": "/content/blog/post01.webp",
+        "content": "O vômito é um dos motivos mais comuns pelos quais os gatos são levados à clínica. Embora um episódio isolado — muitas vezes relacionado a bolas de pelo ou mudanças dietéticas leves — possa não ser alarmante, a repetição nunca é considerada normal.\n\nVômitos frequentes podem estar associados a inflamação gastrointestinal, intolerância alimentar, parasitas intestinais, doença renal ou distúrbios hormonais, como o hipertireoidismo.\n\nOs sinais de alerta incluem perda de apetite, perda de peso, letargia, desidratação ou mudanças no comportamento. Quando esses sintomas estão presentes, uma avaliação veterinária torna-se essencial."
+      },
+      {
+        "category": "Medicina Comportamental",
+        "title": "O Impacto Fisiológico de Estressores Ambientais",
+        "description": "Analisando como o estresse crônico se manifesta como patologia física.",
+        "readTime": "5 min de leitura",
+        "date": "28 de Fevereiro, 2026",
+        "image": "/content/blog/post02.webp",
+        "content": "Os gatos são extremamente sensíveis ao seu ambiente. Mudanças que podem parecer menores para os humanos — como móveis novos, ajustes na rotina ou visitantes desconhecidos — podem ser estressores significativos.\n\nQuando o estresse se torna crônico, pode contribuir para condições como a cistite idiopática felina, distúrbios gastrointestinais, excesso de lambedura e supressão imunológica.\n\nComo os gatos muitas vezes escondem o desconforto, esses efeitos podem passar despercebidos até que a condição já tenha progredido."
+      },
+      {
+        "category": "Cuidados Preventivos",
+        "title": "Metodologias para Detecção Precoce em Felinos Indoor",
+        "description": "Por que a triagem proativa e a observação clínica de rotina são críticas.",
+        "readTime": "3 min de leitura",
+        "date": "15 de Janeiro, 2026",
+        "image": "/content/blog/post03.webp",
+        "content": "Um equívoco comum é que os gatos que vivem apenas dentro de casa têm menos probabilidade de desenvolver problemas de saúde. Na realidade, muitas condições crônicas progridem silenciosamente, sem sinais óbvios.\n\nCheck-ups de rotina permitem que os veterinários monitorem o peso, a saúde bucal, a pressão arterial e detectem indicadores precoces de doença renal, diabetes ou artrite."
+      }
+    ]
+  },
+  "Booking": {
+    "badge": "Recepção Digital",
+    "title": "Solicitar um",
+    "subtitle": "Agendamento",
+    "description": "Nossa equipe clínica revisa todas as solicitações em até 2 horas durante o horário de funcionamento. Selecione o motivo principal da sua visita.",
+    "s1_title": "Serviço Clínico",
+    "s2_title": "Detalhes da Triagem",
+    "guardian_label": "Nome do Tutor",
+    "guardian_placeholder": "Nome do proprietário legal",
+    "patient_label": "Nome do Paciente",
+    "patient_placeholder": "Nome do gato",
+    "email_label": "E-mail de Contato",
+    "email_placeholder": "Para confirmação",
+    "policy": "Ao enviar, você concorda com nossa política de agendamento clínico e protocolos de emergência.",
+    "submit": "Enviar Solicitação",
+    "success_title": "Solicitação Registrada",
+    "success_description": "Sua solicitaçnao foi priorizada em nossa fila clínica. Um coordenador médico entrará em contato em breve para finalizar o agendamento.",
+    "return": "Voltar para a Clínica",
+    "error": "Informações ausentes ou inválidas. Por favor, revise os campos destacados.",
+    "services": [
+      {
+        "id": "consultation",
+        "name": "Consulta Felina Geral",
+        "description": "Avaliação clínica padrão para bem-estar ou preocupações médicas específicas."
+      },
+      {
+        "id": "behavior",
+        "name": "Avaliação Comportamental",
+        "description": "Avaliação profunda de estressores ambientais e neuropsicológicos."
+      },
+      {
+        "id": "preventive",
+        "name": "Triagem Diagnóstica",
+        "description": "Exames laboratoriais preventivos e monitoramento fisiológico para detecção precoce."
+      }
+    ]
+  },
+  "Location": {
+    "badge": "Instalação Clínica",
+    "title": "Nossa",
+    "subtitle": "Localização e Contato",
+    "directory": "Diretório da Clínica",
+    "address_label": "Prática Física",
+    "address_val": "456 Veterinary Way, Suite 100, Pet City, ST 78901",
+    "phone_label": "Recepção Médica",
+    "phone_val": "(555) 123-4567",
+    "email_label": "E-mail Clínico",
+    "email_val": "practice@powervet.com",
+    "hours_label": "Horário Padrão",
+    "hours_value": "Aberto 24/7 para Pacientes Registrados",
+    "directions": "Obter Instruções Clínicas",
+    "status": "Clínica Ativa · Aceitando Novos Pacientes"
+  },
+  "Footer": {
+    "emergency_title": "Protocolo de Emergência Clínica",
+    "emergency_description": "Pacientes registrados têm acesso 24 horas por dia, 7 dias por semana à nossa equipe de cirurgia e triagem de emergência.",
+    "emergency_label": "Linha de Resposta Imediata",
+    "emergency_phone": "(555) 911-CATS",
+    "description": "Uma prática clínica especializada dedicada exclusivamente ao bem-estar fisiológico e psicológico dos pacientes felinos.",
+    "specialties": "Especialidades",
+    "practice": "Prática",
+    "resources": "Recursos",
+    "copyright": "© 2026 PowerVet Clinical Practice",
+    "design_by": "Design e Arquitetura por",
+    "designer": "guibus.dev",
+    "links": {
+      "preventive": "Medicina Preventiva",
+      "internal": "Medicina Interna",
+      "behavioral": "Saúde Comportamental",
+      "geriatric": "Cuidados Geriátricos",
+      "methodology": "Nossa Metodologia",
+      "workflow": "Fluxo Clínico",
+      "team": "Equipe Médica",
+      "library": "Biblioteca Clínica",
+      "portal": "Portal do Paciente",
+      "pharmacy": "Farmácia",
+      "results": "Resultados de Exames",
+      "emergency": "Protocolo de Emergência",
+      "privacy": "Política de Privacidade",
+      "terms": "Termos Clínicos",
+      "ethics": "Ética de Dados"
+    }
+  },
+  "Promo": {
+    "badge": "Benefício de Entrada na Clínica",
+    "text_prefix": "Novos pacientes felinos recebem uma",
+    "text_highlight": "redução de 15%",
+    "text_suffix": "nas avaliações clínicas iniciais quando solicitadas online.",
+    "cta": "Acessar Benefício"
+  }
+}

@@ -1,8 +1,10 @@
 "use client";
 //#region Imports
-import { ClockIcon, XIcon } from "@phosphor-icons/react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@heroui/react";
+import { BookOpenTextIcon, ClockIcon, XIcon } from "@phosphor-icons/react";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import {
   fadeInUp,
@@ -10,7 +12,7 @@ import {
   staggerItem,
   viewportOnce,
 } from "@/lib/motion";
-import { Button } from "@heroui/react";
+
 //#endregion
 
 //#region Types
@@ -21,228 +23,208 @@ type Post = {
   readTime: string;
   image: string;
   content: string;
+  date: string;
 };
-//#endregion
-
-//#region Constants
-const posts: Post[] = [
-  {
-    category: "Cat Health",
-    title: "When vomiting in cats is a reason for concern",
-    description:
-      "Occasional vomiting can be harmless, but recurring episodes may indicate conditions that require medical attention.",
-    readTime: "4 min read",
-    image: "/content/blog/post01.webp",
-    content: `
-Vomiting is one of the most common reasons cats are brought to the clinic. 
-While an isolated episode — often related to hairballs or mild dietary changes — 
-may not be alarming, repetition is never considered normal.
-
-Frequent vomiting can be associated with gastrointestinal inflammation, food intolerance,
-intestinal parasites, kidney disease, or hormonal disorders such as hyperthyroidism.
-
-Warning signs include loss of appetite, weight loss, lethargy, dehydration, or changes in behavior.
-When these symptoms are present, a veterinary evaluation becomes essential.
-
-Early diagnosis allows for targeted treatment, prevents complications, and significantly
-improves long-term comfort and quality of life.
-`,
-  },
-  {
-    category: "Behavior & Stress",
-    title: "How stress silently affects your cat’s health",
-    description:
-      "Chronic stress can manifest physically, impacting digestion, immunity, and urinary health.",
-    readTime: "5 min read",
-    image: "/content/blog/post02.webp",
-    content: `
-Cats are extremely sensitive to their environment. Changes that may seem minor to humans —
-such as new furniture, routine adjustments, or unfamiliar visitors — can be significant stressors.
-
-When stress becomes chronic, it may contribute to conditions such as feline idiopathic cystitis,
-gastrointestinal disturbances, excessive grooming, and immune suppression.
-
-Because cats often hide discomfort, these effects can go unnoticed until the condition
-has already progressed.
-
-Environmental enrichment, predictable routines, safe resting spaces, and behavioral support
-play a crucial role in reducing stress and protecting both physical and emotional health.
-`,
-  },
-  {
-    category: "Preventive Care",
-    title: "Why regular check-ups matter — even for indoor cats",
-    description:
-      "Preventive care helps detect subtle changes early, long before symptoms become visible at home.",
-    readTime: "3 min read",
-    image: "/content/blog/post03.webp",
-    content: `
-A common misconception is that indoor cats are less likely to develop health problems.
-In reality, many chronic conditions progress silently, without obvious signs.
-
-Routine check-ups allow veterinarians to monitor weight, dental health, blood pressure,
-and detect early indicators of kidney disease, diabetes, or arthritis.
-
-Preventive care is not about finding problems — it is about preserving wellbeing,
-comfort, and longevity through proactive monitoring.
-
-Regular consultations help ensure that small changes are addressed early,
-when treatment is simpler and outcomes are better.
-`,
-  },
-];
 //#endregion
 
 export function ClinicalInsights() {
   //#region useStates
+  const t = useTranslations("Insights");
   const [activePost, setActivePost] = useState<Post | null>(null);
+  //#endregion
+
+  //#region Constants
+  const posts: Post[] = t.raw("posts");
   //#endregion
 
   return (
     <>
       <section
-        className="bg-background px-6 lg:px-12 py-20"
+        className="bg-[#FDFDFD] px-6 lg:px-12 py-32 border-b border-border"
         id="clinical-insights"
       >
-        {/* BADGE - TITLE */}
-        <motion.div
-          className="mb-14 flex flex-col gap-4"
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          variants={fadeInUp}
-        >
-          {/* BADGE */}
-          <span className="text-xs uppercase tracking-[0.3em] text-accent">
-            From the clinic
-          </span>
-
-          {/* TITLE */}
-          <h2 className="text-3xl tracking-tight text-foreground md:text-4xl lg:text-5xl">
-            Clinical insights for{" "}
-            <span className="font-serif font-semibold">cat guardians</span>
-          </h2>
-        </motion.div>
-
-        {/* POSTS */}
-        <motion.div
-          className="grid gap-8 md:grid-cols-3"
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          variants={staggerContainer}
-        >
-          {posts.map((post, index) => (
-            <motion.article
-              key={index}
-              variants={staggerItem}
-              whileHover={{ y: -6 }}
-              onClick={() => setActivePost(post)}
-              role="button"
-              className="group cursor-pointer overflow-hidden rounded-3xl"
-            >
-              {/* IMAGE */}
-              <div className="aspect-video overflow-hidden">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                />
+        <div className="container mx-auto">
+          {/* HEADER AREA */}
+          <motion.div
+            className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            variants={fadeInUp}
+          >
+            <div className="max-w-3xl">
+              {/* BADGE */}
+              <div className="inline-flex items-center gap-2 mb-6 text-primary font-bold text-xs uppercase tracking-widest">
+                <BookOpenTextIcon weight="bold" className="w-4 h-4" />
+                {t("badge")}
               </div>
 
-              {/* CATEGORY - TITLE - DESCRIPTION - READ TIME */}
-              <div className="p-6">
-                {/* CATEGORY */}
-                <span className="text-xs font-medium uppercase tracking-wider text-primary">
-                  {post.category}
+              {/* TITLE */}
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
+                {t("title")}
+                <br />
+                <span className="text-primary font-serif italic font-normal">
+                  {t("subtitle")}
                 </span>
+              </h2>
+            </div>
 
-                {/* TITLE */}
-                <h3 className="mt-2 text-lg font-semibold leading-snug text-foreground transition-colors group-hover:text-primary">
-                  {post.title}
-                </h3>
+            <p className="text-muted-foreground text-lg font-light max-w-sm border-l-2 border-primary/10 pl-6 py-2">
+              {t("description")}
+            </p>
+          </motion.div>
 
-                {/* DESCRIPTION */}
-                <p className="mt-3 text-sm text-muted-foreground">
-                  {post.description}
-                </p>
-
-                {/* READ TIME */}
-                <div className="mt-5 flex items-center text-xs text-muted-foreground">
-                  <ClockIcon className="mr-1 h-4 w-4" />
-                  {post.readTime}
+          {/* PUBLICATIONS GRID */}
+          <motion.div
+            className="grid gap-8 md:grid-cols-3"
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewportOnce}
+            variants={staggerContainer}
+          >
+            {posts.map((post, index) => (
+              <motion.button
+                key={index}
+                type="button"
+                variants={staggerItem}
+                whileHover={{ y: -8 }}
+                onClick={() => setActivePost(post)}
+                className="group cursor-pointer bg-white border border-border rounded-3xl overflow-hidden flex flex-col transition-all hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 text-left w-full"
+              >
+                {/* IMAGE AREA */}
+                <div className="aspect-16/10 overflow-hidden relative w-full">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    className="h-full w-full object-cover grayscale-[0.2] transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 rounded-md bg-white/90 backdrop-blur-sm text-[10px] font-bold uppercase tracking-widest text-primary shadow-sm">
+                      {post.category}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </motion.article>
-          ))}
-        </motion.div>
+
+                {/* CONTENT AREA */}
+                <div className="p-8 flex-1 flex flex-col w-full">
+                  <div className="flex items-center gap-4 text-[10px] font-medium text-muted-foreground uppercase tracking-widest mb-4">
+                    <span>{post.date}</span>
+                    <span className="w-1 h-1 rounded-full bg-border" />
+                    <div className="flex items-center gap-1.5">
+                      <ClockIcon className="w-3.5 h-3.5" />
+                      {post.readTime}
+                    </div>
+                  </div>
+
+                  <h3 className="text-xl font-bold leading-tight text-foreground mb-4 group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h3>
+
+                  <p className="text-muted-foreground text-sm font-light leading-relaxed mb-8 flex-1">
+                    {post.description}
+                  </p>
+
+                  <div className="pt-6 border-t border-border flex items-center justify-between mt-auto w-full">
+                    <span className="text-xs font-bold text-primary tracking-widest uppercase">
+                      {t("read_more")}
+                    </span>
+                    <div className="w-8 h-8 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                      <BookOpenTextIcon weight="bold" className="w-4 h-4" />
+                    </div>
+                  </div>
+                </div>
+              </motion.button>
+            ))}
+          </motion.div>
+        </div>
       </section>
 
-      {/* MODAL */}
+      {/* PUBLICATION MODAL */}
       <AnimatePresence>
         {activePost && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-foreground/40 backdrop-blur-sm px-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setActivePost(null)}
           >
-            {/* CLOSE BUTTON - IMAGE - CATEGORY - TITLE - READ TIME - CONTENT */}
             <motion.div
               onClick={(e) => e.stopPropagation()}
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="relative max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-2xl bg-background"
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative max-h-[85vh] w-full max-w-4xl overflow-hidden rounded-[2.5rem] bg-white shadow-2xl flex flex-col md:flex-row"
             >
-              {/* CLOSE BUTTON */}
-              <Button
+              {/* MODAL CLOSE */}
+              <button
+                type="button"
                 onClick={() => setActivePost(null)}
-                className="absolute right-4 top-4 rounded-full p-2 text-muted-foreground hover:text-foreground"
-                isIconOnly
+                className="absolute right-6 top-6 z-10 w-10 h-10 rounded-full bg-white/80 backdrop-blur-sm border border-border flex items-center justify-center text-foreground hover:bg-white transition-colors shadow-lg"
               >
-                <XIcon size={18} />
-              </Button>
+                <XIcon weight="bold" size={18} />
+              </button>
 
-              {/* IMAGE */}
-              <div className="aspect-video overflow-hidden rounded-t-2xl">
+              {/* MODAL MEDIA */}
+              <div className="w-full md:w-[40%] h-64 md:h-auto relative bg-muted">
                 <Image
                   src={activePost.image}
                   alt={activePost.title}
                   className="h-full w-full object-cover"
-                  width={0}
-                  height={0}
-                  sizes="100vw"
+                  fill
                 />
+                <div className="absolute inset-0 bg-primary/10 mix-blend-multiply" />
               </div>
 
-              {/* CATEGORY - TITLE - READ TIME - CONTENT */}
-              <div className="p-8">
-                {/* CATEGORY */}
-                <span className="text-xs font-medium uppercase tracking-wider text-primary">
-                  {activePost.category}
-                </span>
+              {/* MODAL CONTENT */}
+              <div className="flex-1 p-8 md:p-14 overflow-y-auto bg-white">
+                <div className="max-w-2xl">
+                  <div className="flex items-center gap-3 mb-6">
+                    <span className="px-3 py-1 rounded-md bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-widest">
+                      {activePost.category}
+                    </span>
+                    <span className="text-[10px] text-muted-foreground font-medium uppercase tracking-widest">
+                      {activePost.date}
+                    </span>
+                  </div>
 
-                {/* TITLE */}
-                <h3 className="mt-3 text-2xl font-semibold text-foreground">
-                  {activePost.title}
-                </h3>
+                  <h3 className="text-3xl md:text-4xl font-bold text-foreground leading-tight mb-8">
+                    {activePost.title}
+                  </h3>
 
-                {/* READ TIME */}
-                <div className="mt-4 flex items-center text-xs text-muted-foreground">
-                  <ClockIcon className="mr-1 h-4 w-4" />
-                  {activePost.readTime}
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground mb-10 pb-8 border-b border-border">
+                    <ClockIcon className="w-4 h-4" />
+                    <span>
+                      {t("reference")} · {activePost.readTime}
+                    </span>
+                  </div>
+
+                  <div className="prose prose-slate max-w-none">
+                    <p className="whitespace-pre-line text-lg leading-relaxed text-muted-foreground font-light italic border-l-4 border-primary/20 pl-8 mb-12">
+                      {activePost.description}
+                    </p>
+                    <p className="whitespace-pre-line text-base md:text-lg leading-[1.8] text-foreground font-light">
+                      {activePost.content}
+                    </p>
+                  </div>
+
+                  <div className="mt-16 pt-10 border-t border-border flex items-center justify-between">
+                    <div className="text-xs text-muted-foreground italic">
+                      {t("copyright")}
+                    </div>
+                    <Button
+                      onClick={() => setActivePost(null)}
+                      variant="ghost"
+                      className="font-bold text-primary uppercase text-[10px] tracking-widest"
+                    >
+                      {t("close")}
+                    </Button>
+                  </div>
                 </div>
-
-                {/* CONTENT */}
-                <p className="mt-6 whitespace-pre-line text-sm leading-relaxed text-muted-foreground">
-                  {activePost.content}
-                </p>
               </div>
             </motion.div>
           </motion.div>

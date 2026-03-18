@@ -4,43 +4,31 @@
 import { Button, Input } from "@heroui/react";
 import {
   ArrowRightIcon,
-  UserIcon,
+  CalendarCheckIcon,
+  CatIcon,
   CheckCircleIcon,
-  CalendarIcon,
+  UserCircleIcon,
 } from "@phosphor-icons/react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { useRef, useState } from "react";
 import { fadeInUp, viewportOnce } from "@/lib/motion";
 //#endregion
 
-//#region Constants
-const services = [
-  {
-    id: "consultation",
-    name: "General Consultation",
-    description: "Routine check-up or specific concerns",
-  },
-  {
-    id: "behavior",
-    name: "Behavior & Stress Evaluation",
-    description: "Focused assessment for emotional well-being",
-  },
-  {
-    id: "preventive",
-    name: "Preventive Care Visit",
-    description: "Health monitoring & early detection",
-  },
-];
-//#endregion
-
 export function BookingWidget() {
+  //#region Hooks
+  const t = useTranslations("Booking");
+  const formRef = useRef<HTMLFormElement>(null);
+  //#endregion
+
   //#region useStates
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
   //#endregion
 
-  //#region Hooks
-  const formRef = useRef<HTMLFormElement>(null);
+  //#region Constants
+  const services: { id: string; name: string; description: string }[] =
+    t.raw("services");
   //#endregion
 
   //#region Handle functions
@@ -70,143 +58,179 @@ export function BookingWidget() {
     setStatus("success");
     formRef.current?.reset();
     setSelectedService(null);
-    setTimeout(() => setStatus("idle"), 4000);
+    setTimeout(() => setStatus("idle"), 6000);
   };
   //#endregion
 
   return (
-    <section className="px-6 lg:px-12" id="schedule">
-      {/* BADGE - TITLE - DESCRIPTION */}
-      <motion.div
-        className="mb-16 text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={viewportOnce}
-        variants={fadeInUp}
-      >
-        {/* BADGE */}
-        <span className="text-xs uppercase tracking-[0.3em] text-accent">
-          Schedule
-        </span>
-
-        {/* TITLE */}
-        <h2 className="mt-4 text-3xl font-semibold md:text-4xl">
-          Schedule a consultation
-        </h2>
-
-        {/* DESCRIPTION */}
-        <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-          Select a service and fill in your details. Our clinic will contact you
-          with available doctors and times.
-        </p>
-      </motion.div>
-
-      {/* SERVICES - FORM - SUCCESS OVERLAY */}
-      <motion.div
-        className="relative"
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={viewportOnce}
-        transition={{ duration: 0.5 }}
-      >
-        {/* SERVICES */}
-        <div className="mb-12">
-          <span className="mb-5 flex items-center gap-2 text-sm font-medium">
-            <UserIcon className="text-accent" size={20} weight="duotone" />
-            Select a service
-          </span>
-
-          <div className="space-y-4">
-            {services.map((service) => (
-              <button
-                key={service.id}
-                type="button"
-                onClick={() => setSelectedService(service.id)}
-                className={`w-full cursor-pointer rounded-2xl border p-6 text-left transition-colors ${
-                  selectedService === service.id
-                    ? "text-white bg-accent"
-                    : "hover:bg-default"
-                }`}
-              >
-                <div className="flex justify-between">
-                  <span className="font-medium">{service.name}</span>
-                </div>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  {service.description}
-                </p>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* FORM */}
-        <form
-          ref={formRef}
-          className="border-t border-border pt-10 space-y-6"
-          onSubmit={handleSubmit}
+    <section className="px-6 lg:px-12 py-32 bg-white" id="schedule">
+      <div className="container mx-auto max-w-5xl">
+        {/* HEADER AREA */}
+        <motion.div
+          className="mb-20 text-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          variants={fadeInUp}
         >
-          <div className="grid gap-5 md:grid-cols-3">
-            <InputField
-              id="guardianName"
-              label="Your Name"
-              placeholder="Jane Doe"
-            />
-            <InputField id="catName" label="Cat’s Name" placeholder="Zoe" />
-            <InputField
-              id="email"
-              label="Email"
-              placeholder="jane@email.com"
-              type="email"
-            />
+          {/* BADGE */}
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary">
+            <CalendarCheckIcon weight="bold" className="w-4 h-4" />
+            <span className="text-[10px] font-bold uppercase tracking-widest">
+              {t("badge")}
+            </span>
           </div>
 
-          {status === "error" && (
-            <p className="text-red-500 text-sm font-medium">
-              Please fill all required fields correctly and provide a valid
-              email.
-            </p>
-          )}
+          {/* TITLE */}
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">
+            {t("title")}{" "}
+            <span className="text-primary font-serif italic font-normal">
+              {t("subtitle")}
+            </span>
+          </h2>
 
-          <div className="flex justify-end">
-            <Button
-              type="submit"
-              className="group rounded-full px-8 py-6 text-sm font-medium"
-            >
-              Schedule consultation
-              <ArrowRightIcon className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </div>
-        </form>
+          {/* DESCRIPTION */}
+          <p className="mx-auto max-w-2xl text-lg text-muted-foreground font-light leading-relaxed">
+            {t("description")}
+          </p>
+        </motion.div>
 
-        {/* SUCCESS OVERLAY */}
-        <AnimatePresence>
-          {status === "success" && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 z-20 flex items-center justify-center rounded-3xl bg-linear-to-r from-green-100 to-green-200 backdrop-blur-sm p-6"
-            >
-              <div className="text-center max-w-md">
-                <CheckCircleIcon className="mx-auto h-14 w-14 text-green-600" />
-                <h3 className="mt-5 text-2xl font-bold text-green-700">
-                  Consultation Requested!
-                </h3>
-                <p className="mt-2 text-sm text-green-700">
-                  Thank you! Our clinic will contact you soon with available
-                  doctors and times for your selected service.
-                </p>
+        {/* MAIN FORM CARD */}
+        <motion.div
+          className="relative bg-white border border-border rounded-[2.5rem] p-8 md:p-12 shadow-2xl shadow-primary/5 overflow-hidden"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportOnce}
+          transition={{ duration: 0.8 }}
+        >
+          {/* SERVICE SELECTION */}
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-1.5 h-6 bg-primary rounded-full" />
+              <h3 className="text-xl font-bold text-foreground">
+                {t("s1_title")}
+              </h3>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-3">
+              {services.map((service) => (
                 <button
-                  onClick={() => setStatus("idle")}
-                  className="mt-6 rounded-full bg-green-600 px-6 py-2 text-white font-medium hover:bg-green-700 transition"
+                  key={service.id}
+                  type="button"
+                  onClick={() => setSelectedService(service.id)}
+                  className={`relative flex flex-col p-6 text-left rounded-2xl border transition-all duration-300 group ${
+                    selectedService === service.id
+                      ? "bg-primary border-primary text-white shadow-xl shadow-primary/20 scale-[1.02]"
+                      : "bg-white border-border hover:border-primary/40 hover:bg-primary/5"
+                  }`}
                 >
-                  Close
+                  <span
+                    className={`text-sm font-bold mb-3 ${selectedService === service.id ? "text-white" : "text-primary"}`}
+                  >
+                    {service.name}
+                  </span>
+                  <p
+                    className={`text-xs leading-relaxed ${selectedService === service.id ? "text-white/80" : "text-muted-foreground"}`}
+                  >
+                    {service.description}
+                  </p>
                 </button>
+              ))}
+            </div>
+          </div>
+
+          {/* INTAKE FORM */}
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-12">
+            <div>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="w-1.5 h-6 bg-primary rounded-full" />
+                <h3 className="text-xl font-bold text-foreground">
+                  {t("s2_title")}
+                </h3>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
+
+              <div className="grid gap-8 md:grid-cols-3">
+                <InputField
+                  id="guardianName"
+                  label={t("guardian_label")}
+                  placeholder={t("guardian_placeholder")}
+                  icon={UserCircleIcon}
+                />
+                <InputField
+                  id="catName"
+                  label={t("patient_label")}
+                  placeholder={t("patient_placeholder")}
+                  icon={CatIcon}
+                />
+                <InputField
+                  id="email"
+                  label={t("email_label")}
+                  placeholder={t("email_placeholder")}
+                  type="email"
+                  icon={CalendarCheckIcon}
+                />
+              </div>
+            </div>
+
+            {status === "error" && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                className="p-4 rounded-xl bg-red-50 border border-red-100 text-red-600 text-sm font-medium"
+              >
+                {t("error")}
+              </motion.div>
+            )}
+
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-8 border-t border-border">
+              <p className="text-sm text-muted-foreground font-light max-w-sm">
+                {t("policy")}
+              </p>
+
+              <Button
+                type="submit"
+                className="h-14 px-10 rounded-xl bg-primary text-white font-bold text-base shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform active:scale-[0.98]"
+              >
+                {t("submit")}
+                <ArrowRightIcon weight="bold" className="ml-2 w-4 h-4" />
+              </Button>
+            </div>
+          </form>
+
+          {/* SUCCESS OVERLAY */}
+          <AnimatePresence>
+            {status === "success" && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="absolute inset-0 z-30 flex items-center justify-center bg-white/95 backdrop-blur-md p-12 text-center"
+              >
+                <div className="max-w-md">
+                  <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-8 border-4 border-emerald-50 shadow-inner">
+                    <CheckCircleIcon
+                      className="w-10 h-10 text-emerald-600"
+                      weight="fill"
+                    />
+                  </div>
+                  <h3 className="text-3xl font-bold text-foreground mb-4">
+                    {t("success_title")}
+                  </h3>
+                  <p className="text-muted-foreground text-lg font-light leading-relaxed mb-10">
+                    {t("success_description")}
+                  </p>
+                  <Button
+                    onClick={() => setStatus("idle")}
+                    className="h-12 px-8 rounded-xl bg-foreground text-white font-bold"
+                  >
+                    {t("return")}
+                  </Button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+      </div>
     </section>
   );
 }
@@ -215,19 +239,22 @@ function InputField({
   id,
   label,
   placeholder,
+  icon: Icon,
   type = "text",
 }: {
   id: string;
   label: string;
   placeholder: string;
+  icon: any;
   type?: string;
 }) {
   return (
-    <div className="relative">
+    <div className="flex flex-col gap-2.5">
       <label
         htmlFor={id}
-        className="mb-2 block text-sm font-medium text-foreground"
+        className="text-sm font-bold text-foreground flex items-center gap-2"
       >
+        <Icon weight="duotone" className="w-4 h-4 text-primary" />
         {label}
       </label>
       <Input
@@ -236,7 +263,6 @@ function InputField({
         type={type}
         placeholder={placeholder}
         required
-        className="bg-background w-full text-foreground placeholder-muted-foreground border border-default rounded-3xl focus:ring-2 focus:ring-accent py-3 px-4"
       />
     </div>
   );

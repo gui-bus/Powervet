@@ -2,125 +2,133 @@
 //#region Imports
 import { cn } from "@heroui/react";
 import {
-  HandPointingIcon,
-  EyeIcon,
+  HeartbeatIcon,
+  MagnifyingGlassIcon,
+  PrescriptionIcon,
   StethoscopeIcon,
-  ChatCircleTextIcon,
 } from "@phosphor-icons/react";
+import { useTranslations } from "next-intl";
 import type React from "react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 //#endregion
 
-//#region Constants
-const steps = [
-  {
-    icon: HandPointingIcon,
-    step: "01",
-    title: "Gentle arrival",
-    description:
-      "A calm reception designed to minimize stimulation and reduce stress from the very first moment.",
-  },
-  {
-    icon: EyeIcon,
-    step: "02",
-    title: "Observation first",
-    description:
-      "Before touching, we observe posture, behavior, and subtle signals that guide a more precise examination.",
-  },
-  {
-    icon: StethoscopeIcon,
-    step: "03",
-    title: "Focused examination",
-    description:
-      "A careful physical exam performed with minimal restraint, respecting the cat’s comfort and boundaries.",
-  },
-  {
-    icon: ChatCircleTextIcon,
-    step: "04",
-    title: "Clinical discussion",
-    description:
-      "Findings are explained clearly, questions are welcomed, and next steps are defined together.",
-  },
-];
-//#endregion
-
 export function HowItWorksSection() {
   //#region Hooks
+  const t = useTranslations("Workflow");
   const { ref, isVisible } = useScrollAnimation(0.1);
+  //#endregion
+
+  //#region Constants
+  const steps = [
+    {
+      icon: HeartbeatIcon,
+      step: "01",
+      title: t("step1_title"),
+      description: t("step1_description"),
+    },
+    {
+      icon: MagnifyingGlassIcon,
+      step: "02",
+      title: t("step2_title"),
+      description: t("step2_description"),
+    },
+    {
+      icon: StethoscopeIcon,
+      step: "03",
+      title: t("step3_title"),
+      description: t("step3_description"),
+    },
+    {
+      icon: PrescriptionIcon,
+      step: "04",
+      title: t("step4_title"),
+      description: t("step4_description"),
+    },
+  ];
   //#endregion
 
   return (
     <section
       ref={ref as React.RefObject<HTMLElement>}
-      className="px-6 lg:px-12 py-20"
+      className="px-6 lg:px-12 py-32 bg-[#F8FAFB] relative overflow-hidden"
       id="consultation-flow"
     >
-      {/* BADGE - TITLE - DESCRIPTION */}
+      {/* DECORATIVE CLINICAL GRID */}
+      <div
+        className="absolute inset-0 opacity-[0.02] pointer-events-none"
+        style={{
+          backgroundImage:
+            "linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)",
+          backgroundSize: "40px 40px",
+        }}
+      />
+
+      {/* HEADER AREA */}
       <div
         className={cn(
-          "text-center mb-24 transition-all duration-1000",
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          "text-center mb-32 transition-all duration-1000",
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8",
         )}
       >
         {/* BADGE */}
-        <div className="inline-flex items-center gap-2 mb-6">
-          <div className="w-8 h-px bg-accent" />
-          <span className="text-xs font-medium tracking-[0.2em] uppercase text-accent">
-            Consultation Flow
+        <div className="inline-flex items-center gap-2 mb-8 px-4 py-1 rounded-full bg-primary/10 border border-primary/20">
+          <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-primary">
+            {t("badge")}
           </span>
-          <div className="w-8 h-px bg-accent" />
         </div>
 
         {/* TITLE */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mb-5">
-          How a consultation{" "}
-          <span className="font-serif italic font-normal text-muted-foreground">
-            works
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8 text-foreground">
+          {t("title")}{" "}
+          <span className="text-primary font-serif italic font-normal">
+            {t("subtitle")}
           </span>
         </h2>
 
         {/* DESCRIPTION */}
-        <p className="text-muted-foreground text-lg max-w-xl mx-auto font-light">
-          A calm, structured process designed around feline comfort and clinical
-          accuracy.
+        <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+          {t("description")}
         </p>
       </div>
 
-      {/* STEPS */}
-      <div className="relative">
-        <div className="hidden lg:block absolute top-16 left-[10%] right-[10%] h-px bg-linear-to-r from-transparent via-border to-transparent" />
+      {/* STEPS PIPELINE */}
+      <div className="relative max-w-7xl mx-auto">
+        {/* HORIZONTAL CONNECTOR (DESKTOP) */}
+        <div className="hidden lg:block absolute top-12 left-[5%] right-[5%] h-0.5 bg-linear-to-r from-transparent via-primary/20 to-transparent" />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8">
           {steps.map((step, i) => {
             const Icon = step.icon;
             return (
               <div
                 key={step.step}
                 className={cn(
-                  "relative text-center transition-all duration-1000",
+                  "relative flex flex-col items-center text-center transition-all duration-1000",
                   isVisible
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-12"
+                    : "opacity-0 translate-y-12",
                 )}
-                style={{ transitionDelay: `${i * 150}ms` }}
+                style={{ transitionDelay: `${i * 200}ms` }}
               >
-                <div className="relative inline-flex items-center justify-center mb-8">
-                  <div className="absolute inset-0 w-24 h-24 rounded-full bg-accent/5" />
-                  <div className="relative w-20 h-20 rounded-full bg-background border-2 border-foreground flex items-center justify-center shadow-premium">
-                    <Icon
-                      weight="duotone"
-                      className="w-8 h-8 text-foreground"
-                    />
+                {/* ICON & COUNTER */}
+                <div className="relative mb-10">
+                  <div className="w-24 h-24 rounded-2xl bg-white border border-border flex items-center justify-center shadow-xl shadow-black/5 relative z-10">
+                    <Icon weight="duotone" className="w-10 h-10 text-primary" />
                   </div>
-                  <span className="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-accent text-accent-foreground text-xs font-mono font-bold flex items-center justify-center shadow-lg">
+                  {/* STEP NUMBER CHIP */}
+                  <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center shadow-lg border-4 border-[#F8FAFB] z-20">
                     {step.step}
-                  </span>
+                  </div>
+                  {/* PULSE EFFECT */}
+                  <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-xl animate-pulse -z-10" />
                 </div>
 
-                <h3 className="text-xl lg:text-2xl font-semibold tracking-tight mb-4">
+                {/* CONTENT */}
+                <h3 className="text-xl font-bold tracking-tight mb-4 text-foreground">
                   {step.title}
                 </h3>
-                <p className="text-muted-foreground font-light leading-relaxed max-w-xs mx-auto">
+                <div className="w-12 h-1 bg-primary/10 rounded-full mb-6 mx-auto" />
+                <p className="text-muted-foreground text-sm md:text-base font-light leading-relaxed px-4">
                   {step.description}
                 </p>
               </div>

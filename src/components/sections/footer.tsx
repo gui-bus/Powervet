@@ -1,190 +1,182 @@
 "use client";
 //#region Imports
-import Image from "next/image";
 import {
   FacebookLogoIcon,
   InstagramLogoIcon,
   TwitterLogoIcon,
-  YoutubeLogoIcon,
+  WarningCircleIcon,
 } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
-import { staggerContainer, staggerItem, viewportOnce } from "@/lib/motion";
+import Image from "next/image";
 import Link from "next/link";
-//#endregion
-
-//#region Constants
-const navigation = {
-  services: [
-    { name: "General Consultation", href: "#" },
-    { name: "Vaccinations", href: "#" },
-    { name: "Dental Care", href: "#" },
-    { name: "Preventive Care", href: "#" },
-  ],
-  company: [
-    { name: "About PowerVet", href: "#" },
-    { name: "Our Team", href: "#" },
-    { name: "Careers", href: "#" },
-    { name: "Blog", href: "#" },
-  ],
-  support: [
-    { name: "Contact", href: "#" },
-    { name: "FAQ", href: "#" },
-    { name: "Booking", href: "#" },
-    { name: "Emergency", href: "#" },
-  ],
-  legal: [
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms of Service", href: "#" },
-  ],
-};
-
-const social = [
-  { name: "Facebook", icon: FacebookLogoIcon, href: "#" },
-  { name: "Instagram", icon: InstagramLogoIcon, href: "#" },
-  { name: "Twitter", icon: TwitterLogoIcon, href: "#" },
-  { name: "YouTube", icon: YoutubeLogoIcon, href: "#" },
-];
+import { useTranslations } from "next-intl";
+import { staggerContainer, staggerItem, viewportOnce } from "@/lib/motion";
 //#endregion
 
 export function Footer() {
+  const t = useTranslations("Footer");
+
+  //#region Constants
+  const navigation = {
+    specialties: [
+      { name: t("links.preventive"), href: "#clinical-areas" },
+      { name: t("links.internal"), href: "#clinical-areas" },
+      { name: t("links.behavioral"), href: "#clinical-areas" },
+      { name: t("links.geriatric"), href: "#clinical-areas" },
+    ],
+    practice: [
+      { name: t("links.methodology"), href: "#our-approach" },
+      { name: t("links.workflow"), href: "#consultation-flow" },
+      { name: t("links.team"), href: "#founder-quote" },
+      { name: t("links.library"), href: "#clinical-insights" },
+    ],
+    resources: [
+      { name: t("links.portal"), href: "#schedule" },
+      { name: t("links.pharmacy"), href: "#" },
+      { name: t("links.results"), href: "#" },
+      { name: t("links.emergency"), href: "#" },
+    ],
+    legal: [
+      { name: t("links.privacy"), href: "#" },
+      { name: t("links.terms"), href: "#" },
+      { name: t("links.ethics"), href: "#" },
+    ],
+  };
+
+  const social = [
+    { name: "Instagram", icon: InstagramLogoIcon, href: "#" },
+    { name: "Facebook", icon: FacebookLogoIcon, href: "#" },
+    { name: "Twitter", icon: TwitterLogoIcon, href: "#" },
+  ];
+  //#endregion
+
   return (
-    <footer className="border-t border-border bg-accent py-16" id="footer">
-      <div className="px-6 lg:px-12 lg:py-16">
-        {/* LOGO - MESSAGE - SOCIALS - LINKS 01 - LINKS 02 - LINKS 03 - LINKS 04  */}
+    <footer className="bg-white pt-24 border-t border-border" id="footer">
+      <div className="container mx-auto px-6 lg:px-12">
+        {/* EMERGENCY PROTOCOL BANNER */}
         <motion.div
-          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5"
+          className="mb-20 p-8 rounded-[2rem] bg-red-50 border border-red-100 flex flex-col md:flex-row items-center justify-between gap-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportOnce}
+        >
+          <div className="flex items-center gap-6">
+            <div className="w-14 h-14 rounded-full bg-red-600 flex items-center justify-center text-white shrink-0 shadow-lg shadow-red-200">
+              <WarningCircleIcon weight="fill" className="w-8 h-8" />
+            </div>
+            <div>
+              <h4 className="text-xl font-bold text-red-900 mb-1">
+                {t("emergency_title")}
+              </h4>
+              <p className="text-red-700/80 text-sm font-light">
+                {t("emergency_description")}
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col items-end">
+            <div className="text-2xl font-black text-red-600 mb-1">
+              {t("emergency_phone")}
+            </div>
+            <div className="text-[10px] font-bold text-red-500 uppercase tracking-widest">
+              {t("emergency_label")}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* MAIN NAVIGATION GRID */}
+        <motion.div
+          className="grid gap-16 lg:gap-8 sm:grid-cols-2 lg:grid-cols-12 mb-20"
           initial="hidden"
           whileInView="visible"
           viewport={viewportOnce}
           variants={staggerContainer}
         >
-          {/* LOGO - MESSAGE - SOCIALS */}
-          <motion.div variants={staggerItem} className="lg:col-span-2">
-            {/* LOGO */}
+          {/* BRAND COLUMN */}
+          <motion.div variants={staggerItem} className="lg:col-span-4">
             <Link href="/#hero">
               <Image
-                alt="PowerVet"
-                src="/content/logos/whiteLogo.webp"
+                alt="PowerVet Clinical Practice"
+                src="/content/logos/blackLogo.webp"
                 width={0}
                 height={0}
                 sizes="100vw"
-                className="w-44 h-auto"
+                className="w-48 h-auto mb-8"
               />
             </Link>
-
-            {/* MESSAGE */}
-            <p className="mt-4 max-w-xs text-white">
-              Caring for your pets 24/7. PowerVet provides premium veterinary
-              services with love and expertise.
+            <p className="max-w-xs text-muted-foreground text-base font-light leading-relaxed mb-10">
+              {t("description")}
             </p>
-
-            {/* SOCIALS */}
-            <div className="mt-6 flex gap-4">
+            <div className="flex gap-4">
               {social.map((item) => (
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className="text-white transition-colors hover:text-white"
+                  className="w-10 h-10 rounded-xl bg-primary/5 border border-border flex items-center justify-center text-primary transition-all hover:bg-primary hover:text-white"
                   aria-label={item.name}
-                  whileHover={{ scale: 1.2, y: -2 }}
-                  whileTap={{ scale: 0.9 }}
+                  whileHover={{ y: -4 }}
                 >
-                  <item.icon weight="duotone" className="h-5 w-5" />
+                  <item.icon weight="bold" className="h-5 w-5" />
                 </motion.a>
               ))}
             </div>
           </motion.div>
 
-          {/* LINKS 01 */}
-          <motion.div variants={staggerItem}>
-            <h3 className="font-semibold text-white text-xl">Services</h3>
-            <ul className="mt-4 space-y-3">
-              {navigation.services.map((item) => (
+          {/* LINKS: SPECIALTIES */}
+          <motion.div variants={staggerItem} className="lg:col-span-2">
+            <h5 className="text-sm font-bold text-foreground uppercase tracking-[0.2em] mb-8">
+              {t("specialties")}
+            </h5>
+            <ul className="space-y-4">
+              {navigation.specialties.map((item) => (
                 <li key={item.name}>
-                  <motion.a
+                  <Link
                     href={item.href}
-                    className="text-white transition-colors hover:text-white"
-                    whileHover={{ x: 4 }}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors font-light"
                   >
                     {item.name}
-                  </motion.a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* LINKS 02 */}
-          <motion.div variants={staggerItem}>
-            <h3 className="font-semibold text-white text-xl">Company</h3>
-            <ul className="mt-4 space-y-3">
-              {navigation.company.map((item) => (
+          {/* LINKS: PRACTICE */}
+          <motion.div variants={staggerItem} className="lg:col-span-2">
+            <h5 className="text-sm font-bold text-foreground uppercase tracking-[0.2em] mb-8">
+              {t("practice")}
+            </h5>
+            <ul className="space-y-4">
+              {navigation.practice.map((item) => (
                 <li key={item.name}>
-                  <motion.a
+                  <Link
                     href={item.href}
-                    className="text-white transition-colors hover:text-white"
-                    whileHover={{ x: 4 }}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors font-light"
                   >
                     {item.name}
-                  </motion.a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </motion.div>
 
-          {/* LINKS 03 */}
-          <motion.div variants={staggerItem}>
-            <h3 className="font-semibold text-white text-xl">Support</h3>
-            <ul className="mt-4 space-y-3">
-              {navigation.support.map((item) => (
+          {/* LINKS: RESOURCES */}
+          <motion.div variants={staggerItem} className="lg:col-span-2">
+            <h5 className="text-sm font-bold text-foreground uppercase tracking-[0.2em] mb-8">
+              {t("resources")}
+            </h5>
+            <ul className="space-y-4">
+              {navigation.resources.map((item) => (
                 <li key={item.name}>
-                  <motion.a
+                  <Link
                     href={item.href}
-                    className="text-white transition-colors hover:text-white"
-                    whileHover={{ x: 4 }}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors font-light"
                   >
                     {item.name}
-                  </motion.a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </motion.div>
-        </motion.div>
-
-        {/* COPYRIGHT - LINKS 04 */}
-        <motion.div
-          className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={viewportOnce}
-          transition={{ delay: 0.3, duration: 0.4 }}
-        >
-          {/* COPYRIGHT */}
-          <p className="text-sm text-white font-light">
-            © {new Date().getFullYear()} PowerVet. All rights reserved. |
-            Designed by{" "}
-            <Link
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.linkedin.com/in/gui-bus/"
-              className="font-black hover:underline transition-all duration-300"
-            >
-              guibus.dev
-            </Link>
-          </p>
-
-          {/* LINKS 04 */}
-          <div className="flex gap-6">
-            {navigation.legal.map((item) => (
-              <motion.a
-                key={item.name}
-                href={item.href}
-                className="text-sm text-white transition-colors hover:text-white"
-                whileHover={{ y: -2 }}
-              >
-                {item.name}
-              </motion.a>
-            ))}
-          </div>
         </motion.div>
       </div>
     </footer>

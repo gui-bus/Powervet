@@ -1,15 +1,16 @@
 "use client";
 //#region Imports
-import { ClinicalInsights } from "@/components/sections/clinicalInsights";
+import { Header } from "@/components/layout/Header";
 import { BookingWidget } from "@/components/sections/bookingWidget";
-import { HowItWorksSection } from "@/components/sections/howItWorksSection";
-import StickyRevealSection from "@/components/sections/stickyRevealSection";
+import { ClinicalInsights } from "@/components/sections/clinicalInsights";
 import { Footer } from "@/components/sections/footer";
 import { HeroSection } from "@/components/sections/heroSection";
+import { HowItWorksSection } from "@/components/sections/howItWorksSection";
 import { MapWithDetails } from "@/components/sections/mapWithDetails";
+import { PhilosophySection } from "@/components/sections/philosophySection";
+import { PromoBanner } from "@/components/sections/promoBanner";
 import { ServicesList } from "@/components/sections/servicesList";
 import { TestimonialFeatured } from "@/components/sections/testimonialFeatured";
-import { PromoBanner } from "@/components/sections/promoBanner";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 //#endregion
 
@@ -30,11 +31,12 @@ export default function Home() {
 
   return (
     <main className="relative">
+      <Header />
       <PromoBanner />
 
       <HeroSection />
 
-      <StickyRevealSection />
+      <PhilosophySection />
 
       <HowItWorksSection />
 

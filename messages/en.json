@@ -1,0 +1,200 @@
+{
+  "Hero": {
+    "accredited": "Accredited Clinical Practice · Est. 2012",
+    "title": "Advanced Veterinary Medicine,",
+    "subtitle": "dedicated to feline health.",
+    "description": "We combine clinical precision with a calming environment to provide the highest standard of specialized care for cats in all life stages.",
+    "request_appointment": "Request Appointment",
+    "explore_specialties": "Explore our specialties",
+    "nav_approach": "Our approach",
+    "nav_workflow": "Consultation Flow",
+    "nav_address": "Address",
+    "metric_patients": "Patients Yearly",
+    "metric_patients_val": "2,500+",
+    "metric_doctors": "Expert Doctors",
+    "metric_doctors_val": "06",
+    "metric_trust": "Client Trust",
+    "metric_trust_val": "99%",
+    "detail_title": "Evidence-Based Feline Medicine",
+    "detail_desc": "\"Our practice protocols are updated biannually based on international veterinary research.\""
+  },
+  "Philosophy": {
+    "badge": "Our Philosophy",
+    "title": "Care designed for",
+    "subtitle": "the feline patient.",
+    "step1_title": "Low-Stress Clinical Handling",
+    "step1_description": "Our team is trained in specialized feline handling techniques that prioritize physical and emotional safety, reducing patient anxiety during every procedure.",
+    "step2_title": "Evidence-Based Diagnostics",
+    "step2_description": "We utilize structured protocols and precise clinical decision-making to ensure accurate diagnoses and effective treatment pathways for your cat.",
+    "step3_title": "Specialized Feline Environment",
+    "step3_description": "From scent management to acoustic control, every aspect of our clinic is engineered to provide a neutral, calming space for feline patients."
+  },
+  "Workflow": {
+    "badge": "Standard Operating Protocol",
+    "title": "The Consultation",
+    "subtitle": "Workflow",
+    "description": "Our methodology is derived from international feline medicine guidelines, ensuring consistency, safety, and clinical excellence.",
+    "step1_title": "Environmental Stabilization",
+    "step1_description": "Every patient begins their visit in a pheromone-enriched, quiet space to stabilize heart rate and reduce cortisol levels before examination.",
+    "step2_title": "Non-Invasive Observation",
+    "step2_description": "We perform a visual clinical assessment from a distance, monitoring mobility, respiratory effort, and behavioral markers to guide the physical exam.",
+    "step3_title": "Minimal Restraint Exam",
+    "step3_description": "A comprehensive head-to-tail physical evaluation performed using 'less-is-more' handling techniques to preserve trust and clinical accuracy.",
+    "step4_title": "Evidence-Based Plan",
+    "step4_description": "Findings are reviewed with guardians, and a personalized diagnostic or treatment pathway is developed based on the latest feline medical standards."
+  },
+  "Specialties": {
+    "badge": "Clinical Specialties",
+    "title": "Dedicated areas of",
+    "subtitle": "clinical excellence.",
+    "description": "Our practice is structured around rigorous clinical focuses to provide depth in specialized feline care.",
+    "s1_title": "Preventive Medicine",
+    "s1_description": "Comprehensive wellness protocols including immunology, parasite control, and early-detection screenings for lifelong health.",
+    "s2_title": "Internal Medicine",
+    "s2_description": "Advanced diagnostics and management of metabolic, endocrine, and gastrointestinal disorders using specialized feline protocols.",
+    "s3_title": "Behavioral Medicine",
+    "s3_description": "Assessment of neuropsychological patterns and environmental stressors impacting patient health and guardian-patient bonds.",
+    "s4_title": "Geriatric Care",
+    "s4_description": "Specialized management of age-related conditions, prioritizing pain control and metabolic stability for senior patients.",
+    "action": "Request Consultation",
+    "quote": "\"Precision in diagnosis, compassion in treatment.\""
+  },
+  "Testimonial": {
+    "badge": "Leadership Statement",
+    "quote": "Every patient requires a unique clinical narrative. Our mission is to provide feline guardians with thoughtful, evidence-based care that prioritizes physiological stability and emotional safety above all else.",
+    "author": "Dr. Alexandra Williams",
+    "role": "Medical Director",
+    "credentials": "DVM, Feline Practice Specialist",
+    "stat": "Years of Clinical Feline Specialization",
+    "stat_val": "14+"
+  },
+  "Insights": {
+    "badge": "Medical Resource Center",
+    "title": "Evidence-based insights for",
+    "subtitle": "informed guardianship.",
+    "description": "Our clinical library provides technical depth on feline health, behavior, and preventive methodologies.",
+    "read_more": "Read Publication",
+    "close": "Close Paper",
+    "reference": "Reference Publication",
+    "copyright": "Clinical Resource © 2026 PowerVet Practice",
+    "posts": [
+      {
+        "category": "Gastroenterology",
+        "title": "Clinical Evaluation of Recurring Emesis in Feline Patients",
+        "description": "A review of when intermittent vomiting crosses the threshold into clinical concern.",
+        "readTime": "4 min read",
+        "date": "March 12, 2026",
+        "image": "/content/blog/post01.webp",
+        "content": "Vomiting is one of the most common reasons cats are brought to the clinic. While an isolated episode — often related to hairballs or mild dietary changes — may not be alarming, repetition is never considered normal.\n\nFrequent vomiting can be associated with gastrointestinal inflammation, food intolerance, intestinal parasites, kidney disease, or hormonal disorders such as hyperthyroidism.\n\nWarning signs include loss of appetite, weight loss, lethargy, dehydration, or changes in behavior. When these symptoms are present, a veterinary evaluation becomes essential."
+      },
+      {
+        "category": "Behavioral Medicine",
+        "title": "The Physiological Impact of Environmental Stressors",
+        "description": "Analyzing how chronic stress manifests as physical pathology.",
+        "readTime": "5 min read",
+        "date": "Feb 28, 2026",
+        "image": "/content/blog/post02.webp",
+        "content": "Cats are extremely sensitive to their environment. Changes that may seem minor to humans — such as new furniture, routine adjustments, or unfamiliar visitors — can be significant stressors.\n\nWhen stress becomes chronic, it may contribute to conditions such as feline idiopathic cystitis, gastrointestinal disturbances, excess grooming, and immune suppression.\n\nBecause cats often hide discomfort, these effects can go unnoticed until the condition has already progressed."
+      },
+      {
+        "category": "Preventive Care",
+        "title": "Methodologies for Early Detection in Indoor Felines",
+        "description": "Why proactive screening and routine clinical observation are critical.",
+        "readTime": "3 min read",
+        "date": "Jan 15, 2026",
+        "image": "/content/blog/post03.webp",
+        "content": "A common misconception is that indoor cats are less likely to develop health problems. In reality, many chronic conditions progress silently, without obvious signs.\n\nRoutine check-ups allow veterinarians to monitor weight, dental health, blood pressure, and detect early indicators of kidney disease, diabetes, or arthritis."
+      }
+    ]
+  },
+  "Booking": {
+    "badge": "Digital Reception",
+    "title": "Request an",
+    "subtitle": "Appointment",
+    "description": "Our clinical team reviews all requests within 2 hours during practice hours. Please select the primary reason for your visit.",
+    "s1_title": "Clinical Service",
+    "s2_title": "Intake Details",
+    "guardian_label": "Guardian Name",
+    "guardian_placeholder": "Legal owner name",
+    "patient_label": "Patient Name",
+    "patient_placeholder": "Cat's name",
+    "email_label": "Contact Email",
+    "email_placeholder": "For confirmation",
+    "policy": "By submitting, you agree to our clinical scheduling policy and emergency protocols.",
+    "submit": "Submit Request",
+    "success_title": "Request Logged",
+    "success_description": "Your request has been prioritized in our clinical queue. A medical coordinator will contact you shortly to finalize scheduling.",
+    "return": "Return to Practice",
+    "error": "Information missing or invalid. Please review the highlighted fields.",
+    "services": [
+      {
+        "id": "consultation",
+        "name": "General Feline Consultation",
+        "description": "Standard clinical evaluation for wellness or specific medical concerns."
+      },
+      {
+        "id": "behavior",
+        "name": "Behavioral Assessment",
+        "description": "In-depth evaluation of environmental and neuropsychological stressors."
+      },
+      {
+        "id": "preventive",
+        "name": "Diagnostic Screening",
+        "description": "Preventive lab work and physiological monitoring for early detection."
+      }
+    ]
+  },
+  "Location": {
+    "badge": "Clinical Facility",
+    "title": "Our",
+    "subtitle": "Location & Contact",
+    "directory": "Practice Directory",
+    "address_label": "Physical Practice",
+    "address_val": "456 Veterinary Way, Suite 100, Pet City, ST 78901",
+    "phone_label": "Medical Reception",
+    "phone_val": "(555) 123-4567",
+    "email_label": "Clinical Email",
+    "email_val": "practice@powervet.com",
+    "hours_label": "Standard Hours",
+    "hours_value": "Open 24/7 for Registered Patients",
+    "directions": "Get Clinical Directions",
+    "status": "Clinic Active · Accepting New Patients"
+  },
+  "Footer": {
+    "emergency_title": "Clinical Emergency Protocol",
+    "emergency_description": "Existing patients have 24/7 access to our emergency surgical and triage team.",
+    "emergency_label": "Immediate Response Line",
+    "emergency_phone": "(555) 911-CATS",
+    "description": "A specialized clinical practice dedicated exclusively to the physiological and psychological wellbeing of feline patients.",
+    "specialties": "Specialties",
+    "practice": "Practice",
+    "resources": "Resources",
+    "copyright": "© 2026 PowerVet Clinical Practice",
+    "design_by": "Design & Architecture by",
+    "designer": "guibus.dev",
+    "links": {
+      "preventive": "Preventive Medicine",
+      "internal": "Internal Medicine",
+      "behavioral": "Behavioral Health",
+      "geriatric": "Geriatric Care",
+      "methodology": "Our Methodology",
+      "workflow": "Clinical Workflow",
+      "team": "Medical Team",
+      "library": "Clinical Library",
+      "portal": "Patient Portal",
+      "pharmacy": "Pharmacy",
+      "results": "Lab Results",
+      "emergency": "Emergency Protocol",
+      "privacy": "Privacy Policy",
+      "terms": "Clinical Terms",
+      "ethics": "Data Ethics"
+    }
+  },
+  "Promo": {
+    "badge": "Practice Entrance Benefit",
+    "text_prefix": "New feline patients receive a",
+    "text_highlight": "15% reduction",
+    "text_suffix": "on initial clinical assessments when requested online.",
+    "cta": "Access Benefit"
+  }
+}
