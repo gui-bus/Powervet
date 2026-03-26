@@ -51,7 +51,7 @@ export function Footer() {
   //#endregion
 
   return (
-    <footer className="bg-white pt-24 border-t border-border" id="footer">
+    <footer className="bg-white py-24 border-t border-border" id="footer">
       <div className="container mx-auto px-6 lg:px-12">
         {/* EMERGENCY PROTOCOL BANNER */}
         <motion.div
